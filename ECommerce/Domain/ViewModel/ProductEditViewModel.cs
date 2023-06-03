@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace ECommerce.Domain.ViewModel
 {
@@ -35,12 +36,16 @@ namespace ECommerce.Domain.ViewModel
                         Quantity = ProductQuantity,
                         Discount = ProductDiscount
                     };
-                    
+                    _productService.AddProduct(product);
                 }
             });
 
             EditCommand = new RelayCommand((obj) =>
             {
+                if (SelectedProduct.Name == ProductName)
+                {
+
+                }
 
             });
         }
