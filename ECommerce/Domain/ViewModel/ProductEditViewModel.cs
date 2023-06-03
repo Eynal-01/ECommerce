@@ -13,6 +13,7 @@ namespace ECommerce.Domain.ViewModel
 {
     public class ProductEditViewModel : BaseViewModel
     {
+        private readonly ProductService _productService;
         public ProductEditViewModel()
         {
             _productService = new ProductService();
