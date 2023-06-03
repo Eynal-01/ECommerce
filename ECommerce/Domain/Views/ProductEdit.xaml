@@ -1,0 +1,97 @@
+﻿<Window x:Class="ECommerce.Domain.Views.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ECommerce.Domain.Views" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800">
+    <Grid>
+        <Canvas>
+            <ListView Margin="10" ItemsSource="{Binding AllProducts}"
+                      SelectedItem="{Binding SelectedProduct,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                      Padding="10" Background="White" BorderBrush="Orange"
+                      BorderThickness="5,5,5,5" SelectionChanged="ListView_SelectionChanged">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectProductCommand}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" HorizontalAlignment="Center"
+                                           Padding="5,2" Text="Products"
+                                           ></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button
+                Width="130"
+                Height="50"
+                Content="Insert"
+                FontSize="20"
+                Background="green" 
+                Canvas.Left="570" 
+                Canvas.Top="374" HorizontalAlignment="Left" VerticalAlignment="Center"
+                Command="{Binding InsertCommand}"
+                />
+            <Button
+                Width="130"
+                Height="50"
+                Content="Change"
+                FontSize="20"
+                Background="orange" 
+                Canvas.Left="400" 
+                Canvas.Top="374" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                Command="{Binding EditCommand}"
+                />
+            <Label FontSize="20" Canvas.Left="316" Canvas.Top="33" HorizontalAlignment="Center" VerticalAlignment="Center">Name</Label>
+            <TextBox
+                Width="300"
+                Height="40"
+                Canvas.Left="400"
+                Canvas.Top="30"
+                Text="{Binding ProductName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                ></TextBox>
+            <Label FontSize="20" Canvas.Left="326" Canvas.Top="103" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.649">Price</Label>
+            <TextBox
+                Width="300"
+                Height="40"
+                Canvas.Left="400"
+                Canvas.Top="100"
+                Text="{Binding ProductPrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                ></TextBox>
+            <Label FontSize="20" Canvas.Left="293" Canvas.Top="173" HorizontalAlignment="Center" VerticalAlignment="Top">Quantity</Label>
+            <TextBox
+                Width="300"
+                Height="40"
+                Canvas.Left="400"
+                Canvas.Top="170"
+                Text="{Binding ProductQuantity,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                ></TextBox>
+            <Label FontSize="20" Canvas.Left="269" Canvas.Top="243" HorizontalAlignment="Center" VerticalAlignment="Top">Description</Label>
+            <TextBox
+                Width="300"
+                Height="40"
+                Canvas.Left="400"
+                Canvas.Top="240"
+                Text="{Binding ProductDescription,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                ></TextBox>
+            <Label FontSize="20" Canvas.Left="291" Canvas.Top="313" HorizontalAlignment="Center" VerticalAlignment="Top">Discount</Label>
+            <TextBox
+                Width="300"
+                Height="40"
+                Canvas.Left="400"
+                Canvas.Top="310"
+                 Text="{Binding ProductDiscount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                ></TextBox>
+        </Canvas>
+    </Grid>
+</Window>

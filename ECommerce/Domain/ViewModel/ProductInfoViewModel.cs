@@ -49,7 +49,6 @@ namespace ECommerce.Domain.ViewModel
                         _orderService.AddOrder(order);
 
                         MessageBox.Show("Your order submitted");
-
                     }
                     else
                     {
@@ -84,7 +83,5 @@ namespace ECommerce.Domain.ViewModel
             get { return username; }
             set { username = value; OnPropertyChanged(); }
         }
-
-
     }
 }

@@ -37,7 +37,7 @@
                     <TextBox VerticalAlignment="Top"
                              Height="40"
                              Width="200"   FontSize="25"
-                              Margin="10,0,0,0"
+                             Margin="10,0,0,0"
                              Text="{Binding Amount,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                              ></TextBox>
                 </StackPanel>

@@ -16,6 +16,7 @@ namespace ECommerce.Domain.ViewModel
 
         public RelayCommand ToLowerCommand { get; set; }
         public RelayCommand SelectProductCommand { get; set; }
+        public RelayCommand AdminSideCommand { get; set; }
 
         private readonly ProductService _productService;
 
@@ -45,6 +46,15 @@ namespace ECommerce.Domain.ViewModel
             {
                 var vm = new ProductInfoViewModel();
                 vm.ProductInfo = SelectedProduct;
+                var view = new ProductWindow();
+                view.DataContext = vm;
+                view.ShowDialog();
+            });
+
+            AdminSideCommand = new RelayCommand((obj) =>
+            {
+                var vm = new ProductInfoViewModel();
+                //vm.ProductInfo = SelectedProduct;
                 var view = new ProductWindow();
                 view.DataContext = vm;
                 view.ShowDialog();

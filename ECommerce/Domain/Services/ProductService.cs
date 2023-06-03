@@ -41,5 +41,10 @@ namespace ECommerce.Domain.Services
         {
             _repository.UpdateData(product);
         }
+
+        public void AddProduct(Product product)
+        {
+            _repository.AddData(product);
+        }
     }
 }

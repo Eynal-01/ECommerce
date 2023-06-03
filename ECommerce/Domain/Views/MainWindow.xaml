@@ -28,6 +28,7 @@
                             >
                     </Button>
                     <Button
+                        Command="{Binding AdminSideCommand}"
                         Margin="20,0,0,0"
                         Content="Admin"
                         Background="Orange"
