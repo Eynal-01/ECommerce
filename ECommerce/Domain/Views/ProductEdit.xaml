@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ECommerce.Domain.Views" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Canvas>
             <ListView Margin="10" ItemsSource="{Binding AllProducts}"

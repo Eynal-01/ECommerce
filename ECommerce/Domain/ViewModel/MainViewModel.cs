@@ -53,9 +53,8 @@ namespace ECommerce.Domain.ViewModel
 
             AdminSideCommand = new RelayCommand((obj) =>
             {
-                var vm = new ProductInfoViewModel();
-                //vm.ProductInfo = SelectedProduct;
-                var view = new ProductWindow();
+                var vm = new AdminSideViewModel();      
+                var view = new AdminSide();
                 view.DataContext = vm;
                 view.ShowDialog();
             });

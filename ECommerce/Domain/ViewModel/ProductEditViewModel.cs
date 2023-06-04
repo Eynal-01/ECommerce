@@ -42,16 +42,34 @@ namespace ECommerce.Domain.ViewModel
 
             EditCommand = new RelayCommand((obj) =>
             {
-                if (SelectedProduct.Name == ProductName)
+                if (SelectedProduct.Name != ProductName || SelectedProduct.Price != ProductPrice ||
+                    SelectedProduct.Discount != ProductDiscount || SelectedProduct.Quantity != ProductQuantity || SelectedProduct.Description != ProductDescription)
                 {
-
+                    SelectedProduct.Name = ProductName;
+                    SelectedProduct.Price = ProductPrice;
+                    SelectedProduct.Discount = ProductDiscount;
+                    SelectedProduct.Description = ProductDescription;
+                    SelectedProduct.Quantity = ProductQuantity;
                 }
+                else
+                {
+                    MessageBox.Show("Change something for update!");
+                }
+            });
 
+            SelectedItem = new RelayCommand((obj) =>
+            {
+                ProductName = SelectedProduct.Name;
+                ProductPrice = SelectedProduct.Price;
+                ProductDiscount = (int)SelectedProduct.Discount;
+                ProductQuantity = SelectedProduct.Quantity;
+                ProductDescription = SelectedProduct.Description;  
             });
         }
 
         public RelayCommand EditCommand { get; set; }
         public RelayCommand InsertCommand { get; set; }
+        public RelayCommand SelectedItem { get; set; }
 
         private Product selectedProduct;
 
