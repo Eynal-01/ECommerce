@@ -66,6 +66,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Domain\Views\Orders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\ProductEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,10 +101,14 @@
     <Compile Include="Domain\ViewModel\AdminSideViewModel.cs" />
     <Compile Include="Domain\ViewModel\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModel\MainViewModel.cs" />
+    <Compile Include="Domain\ViewModel\OrdersViewModel.cs" />
     <Compile Include="Domain\ViewModel\ProductEditViewModel.cs" />
     <Compile Include="Domain\ViewModel\ProductInfoViewModel.cs" />
     <Compile Include="Domain\Views\AdminSide.xaml.cs">
       <DependentUpon>AdminSide.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Views\Orders.xaml.cs">
+      <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Views\ProductEdit.xaml.cs">
       <DependentUpon>ProductEdit.xaml</DependentUpon>

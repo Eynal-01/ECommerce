@@ -19,6 +19,7 @@ namespace ECommerce.Domain.ViewModel
         public RelayCommand AdminSideCommand { get; set; }
 
         private readonly ProductService _productService;
+        private readonly OrderService _orderService;
 
         public MainViewModel()
         {
@@ -26,6 +27,8 @@ namespace ECommerce.Domain.ViewModel
             FilterText = "Higher To Lower";
 
             AllProducts = _productService.GetFromHigherToLower(IsLower);
+
+            AllOrders = _orderService.Get
 
             ToLowerCommand = new RelayCommand((obj) =>
             {
