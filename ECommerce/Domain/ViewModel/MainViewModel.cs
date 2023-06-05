@@ -19,7 +19,7 @@ namespace ECommerce.Domain.ViewModel
         public RelayCommand AdminSideCommand { get; set; }
 
         private readonly ProductService _productService;
-        private readonly OrderService _orderService;
+        //private readonly OrderService _orderService;
 
         public MainViewModel()
         {
@@ -28,7 +28,7 @@ namespace ECommerce.Domain.ViewModel
 
             AllProducts = _productService.GetFromHigherToLower(IsLower);
 
-            AllOrders = _orderService.Get
+            //AllOrders = _orderService.
 
             ToLowerCommand = new RelayCommand((obj) =>
             {

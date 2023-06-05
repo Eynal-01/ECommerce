@@ -3,6 +3,7 @@ using ECommerce.DataAccess.Concrete;
 using ECommerce.DataAccess.SqlServer;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,15 @@ namespace ECommerce.Domain.Services
         public void AddOrder(Order order)
         {
             _repository.AddData(order);
+        }
+
+        public ObservableCollection<Order> GetAllOrders()
+        {
+            IOrderedEnumerable<Order> items = null;
+            items = from o in _repository.GetAll()
+                    orderby o.ProductId descending
+                    select o;
+            return new ObservableCollection<Order>(items);
         }
     }
 }

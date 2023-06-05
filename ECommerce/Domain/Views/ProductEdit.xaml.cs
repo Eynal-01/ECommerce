@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECommerce.Domain.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,16 +18,13 @@ namespace ECommerce.Domain.Views
     /// <summary>
     /// Interaction logic for AdminWindow.xaml
     /// </summary>
-    public partial class AdminWindow : Window
+    public partial class ProductEdit : Window
     {
-        public AdminWindow()
+        public ProductEdit()
         {
             InitializeComponent();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            var vm = new ProductEditViewModel();
+            this.DataContext = vm;
         }
     }
 }

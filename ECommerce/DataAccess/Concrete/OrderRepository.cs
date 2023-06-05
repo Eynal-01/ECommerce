@@ -30,7 +30,10 @@ namespace ECommerce.DataAccess.Concrete
 
         public ObservableCollection<Order> GetAll()
         {
-            throw new NotImplementedException();
+            var orders = from o in _context.Orders
+                           orderby o.CustomerId
+                           select o;
+            return new ObservableCollection<Order>(orders);
         }
 
         public Order GetData(int id)

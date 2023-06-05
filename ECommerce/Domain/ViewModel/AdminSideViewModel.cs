@@ -24,6 +24,13 @@ namespace ECommerce.Domain.ViewModel
                 view.ShowDialog();
             });
 
+            OrdersCommand = new RelayCommand((obj) =>
+            {
+                var vm = new OrdersViewModel();
+                var view = new Orders();
+                view.DataContext = vm;
+                view.ShowDialog();
+            });
         }
     }
 }

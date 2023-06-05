@@ -20,8 +20,8 @@ namespace ECommerce.DataAccess.SqlServer
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
+	using System.Runtime.CompilerServices;
+
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ECommerceDb")]
 	public partial class EECommerceDataContext : System.Data.Linq.DataContext
 	{
@@ -590,9 +590,9 @@ namespace ECommerce.DataAccess.SqlServer
 		private int _Quantity;
 		
 		private EntitySet<Order> _Orders;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
+
+		#region Extensibility Method Definitions
+		partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnIdChanging(int value);

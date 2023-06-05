@@ -37,6 +37,15 @@ namespace ECommerce.Domain.Services
             return new ObservableCollection<Product>(items);
         }
 
+        public ObservableCollection<Product> GetAllProducts()
+        {
+            IOrderedEnumerable<Product> items = null;
+                items = from p in _repository.GetAll()
+                        orderby p.Price descending
+                        select p;
+            return new ObservableCollection<Product>(items);
+        }
+
         public void UpdateProduct(Product product)
         {
             _repository.UpdateData(product);

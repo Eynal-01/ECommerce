@@ -3,6 +3,7 @@ using ECommerce.DataAccess.SqlServer;
 using ECommerce.Domain.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,12 @@ namespace ECommerce.Domain.ViewModel
         private readonly ProductService _productService;
         public ProductEditViewModel()
         {
+
             _productService = new ProductService();
             SelectedProduct = new Product();
+
+            AllProducts = _productService.GetAllProducts();
+
 
             InsertCommand = new RelayCommand((obj) =>
             {
@@ -37,6 +42,12 @@ namespace ECommerce.Domain.ViewModel
                         Discount = ProductDiscount
                     };
                     _productService.AddProduct(product);
+                    AllProducts = _productService.GetAllProducts();
+                    ProductName = null;
+                    ProductPrice = 0;
+                    ProductDescription = null;
+                    ProductQuantity = 0;
+                    ProductDiscount = 0;
                 }
             });
 
@@ -55,21 +66,34 @@ namespace ECommerce.Domain.ViewModel
                 {
                     MessageBox.Show("Change something for update!");
                 }
+                ProductName = null;
+                ProductPrice = 0;
+                ProductDescription = null;
+                ProductQuantity = 0;
+                ProductDiscount = 0;
             });
 
-            SelectedItem = new RelayCommand((obj) =>
+            SelectedProductCommand = new RelayCommand((obj) =>
             {
                 ProductName = SelectedProduct.Name;
                 ProductPrice = SelectedProduct.Price;
                 ProductDiscount = (int)SelectedProduct.Discount;
                 ProductQuantity = SelectedProduct.Quantity;
-                ProductDescription = SelectedProduct.Description;  
+                ProductDescription = SelectedProduct.Description;
             });
         }
 
         public RelayCommand EditCommand { get; set; }
         public RelayCommand InsertCommand { get; set; }
-        public RelayCommand SelectedItem { get; set; }
+        public RelayCommand SelectedProductCommand { get; set; }
+
+        private ObservableCollection<Product> allProducts;
+
+        public ObservableCollection<Product> AllProducts
+        {
+            get { return allProducts; }
+            set { allProducts = value; OnPropertyChanged(); }
+        }
 
         private Product selectedProduct;
 
@@ -78,6 +102,15 @@ namespace ECommerce.Domain.ViewModel
             get { return selectedProduct; }
             set { selectedProduct = value; OnPropertyChanged(); }
         }
+
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; OnPropertyChanged(); }
+        }
+
 
         private string productName;
 

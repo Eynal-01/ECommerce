@@ -3,10 +3,67 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ECommerce.Domain.Views"
+        xmlns:local="clr-namespace:ECommerce.Domain.Views" 
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="Orders" Height="450" Width="800">
+        Title="Orders" 
+        Height="450" 
+        Width="800">
     <Grid>
-        
+        <ScrollViewer>
+            <ListView ItemsSource="{Binding AllOrders}" Height="330"
+                      Padding="10" Background="White" BorderBrush="Orange"
+                      BorderThickness="5,0,5,5">
+
+                <ListView.View>
+                    <GridView>
+
+                        <GridViewColumn Header="Order date" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" HorizontalAlignment="Center"
+                                           Padding="5,2" Text="{Binding Date}"
+                                           ></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Amount" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="18" HorizontalAlignment="Center"
+                                           Padding="5,2" Text="{Binding Amount}"
+                                           ></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="ProductId" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="18" HorizontalAlignment="Center"
+                                            Text="{Binding ProductId}"
+                                           ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="CustomerId" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="18" HorizontalAlignment="Center"
+                                            Text="{Binding CustomerId}"
+                                           ></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </Window>
