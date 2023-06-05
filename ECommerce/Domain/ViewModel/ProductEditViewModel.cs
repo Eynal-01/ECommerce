@@ -61,16 +61,16 @@ namespace ECommerce.Domain.ViewModel
                     SelectedProduct.Discount = ProductDiscount;
                     SelectedProduct.Description = ProductDescription;
                     SelectedProduct.Quantity = ProductQuantity;
+                    ProductName = null;
+                    ProductPrice = 0;
+                    ProductDescription = null;
+                    ProductQuantity = 0;
+                    ProductDiscount = 0;
                 }
                 else
                 {
                     MessageBox.Show("Change something for update!");
                 }
-                ProductName = null;
-                ProductPrice = 0;
-                ProductDescription = null;
-                ProductQuantity = 0;
-                ProductDiscount = 0;
             });
 
             SelectedProductCommand = new RelayCommand((obj) =>
